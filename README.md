@@ -53,3 +53,6 @@ The system includes:
 ## ✅ Current Progress
 - Basic working prototype implemented using Python
 - Takes user input (mood, stress, sleep) and predicts risk level
+
+## 📸 Output Screenshot
+![Output](output.png)
