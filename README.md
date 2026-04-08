@@ -48,4 +48,8 @@ The system includes:
 - Enhances academic performance
 
 ## 📌 Status
-🚧 Ongoing Project (Currently upgrading to AI-driven risk detection system)
+🚧 Prototype Version 1 Completed (Currently upgrading to AI-driven risk detection system)
+
+## ✅ Current Progress
+- Basic working prototype implemented using Python
+- Takes user input (mood, stress, sleep) and predicts risk level
