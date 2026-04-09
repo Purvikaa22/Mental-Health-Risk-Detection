@@ -1,16 +1,49 @@
 print("Mental Health Risk Detection System")
 
-mood = int(input("Enter your mood level (1-10): "))
-stress = int(input("Enter your stress level (1-10): "))
-sleep = int(input("Enter your sleep quality (1-10): "))
-social = int(input("How socially active are you (1-10): "))
+while True:
+    try:
+        stress = int(input("Enter stress level (1-10): "))
+        sleep = int(input("Enter sleep hours: "))
+        mood = int(input("Enter mood level (1-10): "))
 
-if mood <= 3 and stress >= 7 and social <= 4:
-    print("Risk Level: HIGH")
-    print("Suggestion: Please talk to a counselor or a trusted person immediately.")
-elif mood <= 5 or stress >= 6:
-    print("Risk Level: MEDIUM")
-    print("Suggestion: Try meditation, journaling, or talking to friends.")
-else:
-    print("Risk Level: LOW")
-    print("Suggestion: Keep maintaining a healthy routine!")
+        # Input validation
+        if stress < 1 or stress > 10 or mood < 1 or mood > 10:
+            print("Invalid input! Values should be between 1 and 10.\n")
+            continue
+
+        # Scoring system
+        score = 0
+        score += stress
+        score += (10 - mood)
+        score += (8 - sleep)
+
+        # Risk classification
+        if score >= 20:
+            risk = "High Risk"
+        elif score >= 12:
+            risk = "Moderate Risk"
+        else:
+            risk = "Low Risk"
+
+        # Structured output
+        print("\n----- RESULT -----")
+        print("Stress Level:", stress)
+        print("Sleep Hours:", sleep)
+        print("Mood Level:", mood)
+        print("Mental Health Status:", risk)
+        print("------------------\n")
+
+        # Save to file
+        file = open("results.txt", "a")
+        file.write(f"Stress: {stress}, Sleep: {sleep}, Mood: {mood}, Risk: {risk}\n")
+        file.close()
+
+    except:
+        print("Invalid input! Please enter numbers only.\n")
+
+    # Repeat option
+    again = input("Do you want to check again? (yes/no): ")
+
+    if again.lower() != "yes":
+        print("Thank you for using the system")
+        break
